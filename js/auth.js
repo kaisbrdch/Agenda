@@ -6,7 +6,7 @@ let currentUser = null;
 
 async function initAuth() {
   // Vérifie la session existante
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { session } } = await supabaseClient .auth.getSession();
   if (session) {
     currentUser = session.user;
     showApp();
@@ -15,7 +15,7 @@ async function initAuth() {
   }
 
   // Écoute les changements d'auth
-  supabase.auth.onAuthStateChange((event, session) => {
+  supabaseClient .auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_IN' && session) {
       currentUser = session.user;
       showApp();
@@ -49,13 +49,13 @@ document.getElementById('auth-btn').addEventListener('click', async () => {
   btn.disabled = true;
 
   try {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabaseClient .auth.signInWithPassword({ email, password });
     if (error) {
       errEl.textContent = 'Email ou mot de passe incorrect.';
       errEl.classList.remove('hidden');
     }
   } catch (e) {
-    errEl.textContent = 'Erreur réseau — vérifie ta connexion et tes clés Supabase.';
+    errEl.textContent = 'Erreur réseau — vérifie ta connexion et tes clés supabaseClient .';
     errEl.classList.remove('hidden');
   } finally {
     btn.textContent = 'Se connecter';
@@ -70,5 +70,5 @@ document.getElementById('auth-password').addEventListener('keydown', e => {
 
 // Logout
 document.getElementById('logout-btn').addEventListener('click', async () => {
-  await supabase.auth.signOut();
+  await supabaseClient .auth.signOut();
 });
