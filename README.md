@@ -143,7 +143,6 @@ git push -u origin main
 | 🌿 Bien-être | Analyse équilibre travail/détente + message |
 | 🎯 Objectifs | Objectifs hebdomadaires avec check |
 | 📝 To-do list | Tâches avec deadline et catégorie |
-| 💛 Liste Kaïs | Activités fun avec bouton "On le fait quand ?" |
 | 🔥 Streak | Compteur de jours consécutifs de travail |
 | ⌨️ Raccourcis | `N` = nouveau, `Echap` = fermer modal |
 
@@ -159,6 +158,3 @@ git push -u origin main
 
 **Connexion impossible** → Vérifie l'URL dans Supabase Authentication > URL Configuration
 
----
-
-## 💜 Fait avec amour pour ton DSCG
