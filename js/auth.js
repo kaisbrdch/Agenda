@@ -48,11 +48,16 @@ document.getElementById('auth-btn').addEventListener('click', async () => {
   btn.textContent = 'Connexion…';
   btn.disabled = true;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-  if (error) {
-    errEl.textContent = 'Email ou mot de passe incorrect.';
+  try {
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      errEl.textContent = 'Email ou mot de passe incorrect.';
+      errEl.classList.remove('hidden');
+    }
+  } catch (e) {
+    errEl.textContent = 'Erreur réseau — vérifie ta connexion et tes clés Supabase.';
     errEl.classList.remove('hidden');
+  } finally {
     btn.textContent = 'Se connecter';
     btn.disabled = false;
   }
