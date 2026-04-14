@@ -4,8 +4,8 @@
 //  projet Supabase (Settings > API)
 // ════════════════════════════════════════════════════
 
-const SUPABASE_URL  = 'https://XXXXXXXXXXXXXXXX.supabase.co';
-const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.XXXXXX';
+const SUPABASE_URL  = 'https://twulkippnxxzzqlkvopr.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3dWxraXBwbnh4enpxbGt2b3ByIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxODQwNjksImV4cCI6MjA5MTc2MDA2OX0.3sJd4QQYTnuWzwjx-wrbGfeZRdUBB26j9-bWNzhvas0';
 
 // Initialisation du client Supabase
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
