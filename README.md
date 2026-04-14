@@ -20,7 +20,7 @@ agenda-dscg/
 │   ├── stats.js            ← Graphiques et statistiques
 │   ├── wellbeing.js        ← Module bien-être
 │   ├── todos.js            ← Liste de tâches
-│   ├── kais.js             ← Liste fun Kaïs 💛
+│   ├── kais.js             ← Liste Kaïs 
 │   └── app.js              ← Orchestrateur principal
 └── supabase-schema.sql     ← Schéma base de données
 ```
