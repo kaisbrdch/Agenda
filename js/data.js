@@ -5,7 +5,7 @@
 // ─── EVENTS ─────────────────────────────────────────
 
 async function fetchEvents(startISO, endISO) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('events')
     .select('*')
     .eq('user_id', currentUser.id)
@@ -17,7 +17,7 @@ async function fetchEvents(startISO, endISO) {
 }
 
 async function createEvent(payload) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('events')
     .insert([{ ...payload, user_id: currentUser.id }])
     .select()
@@ -27,7 +27,7 @@ async function createEvent(payload) {
 }
 
 async function updateEvent(id, payload) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('events')
     .update(payload)
     .eq('id', id)
@@ -39,7 +39,7 @@ async function updateEvent(id, payload) {
 }
 
 async function deleteEvent(id) {
-  const { error } = await supabase
+  const { error } = await supabaseClient 
     .from('events')
     .delete()
     .eq('id', id)
@@ -50,7 +50,7 @@ async function deleteEvent(id) {
 // ─── FETCH EVENTS RANGE (pour stats) ────────────────
 
 async function fetchEventsRange(startISO, endISO) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('events')
     .select('*')
     .eq('user_id', currentUser.id)
@@ -63,7 +63,7 @@ async function fetchEventsRange(startISO, endISO) {
 // ─── TODOS ──────────────────────────────────────────
 
 async function fetchTodos(type = 'classique') {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('todos')
     .select('*')
     .eq('user_id', currentUser.id)
@@ -74,7 +74,7 @@ async function fetchTodos(type = 'classique') {
 }
 
 async function createTodo(payload) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('todos')
     .insert([{ ...payload, user_id: currentUser.id }])
     .select()
@@ -84,7 +84,7 @@ async function createTodo(payload) {
 }
 
 async function updateTodo(id, payload) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('todos')
     .update(payload)
     .eq('id', id)
@@ -96,7 +96,7 @@ async function updateTodo(id, payload) {
 }
 
 async function deleteTodo(id) {
-  const { error } = await supabase
+  const { error } = await supabaseClient 
     .from('todos')
     .delete()
     .eq('id', id)
@@ -107,7 +107,7 @@ async function deleteTodo(id) {
 // ─── OBJECTIVES ─────────────────────────────────────
 
 async function fetchObjectives() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('objectives')
     .select('*')
     .eq('user_id', currentUser.id)
@@ -117,7 +117,7 @@ async function fetchObjectives() {
 }
 
 async function createObjective(text) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient 
     .from('objectives')
     .insert([{ text, user_id: currentUser.id, done: false }])
     .select()
@@ -127,7 +127,7 @@ async function createObjective(text) {
 }
 
 async function updateObjective(id, payload) {
-  const { error } = await supabase
+  const { error } = await supabaseClient 
     .from('objectives')
     .update(payload)
     .eq('id', id)
@@ -136,7 +136,7 @@ async function updateObjective(id, payload) {
 }
 
 async function deleteObjective(id) {
-  const { error } = await supabase
+  const { error } = await supabaseClient 
     .from('objectives')
     .delete()
     .eq('id', id)
@@ -148,7 +148,7 @@ async function deleteObjective(id) {
 
 async function computeStreak() {
   // Récupère tous les jours où il y a eu un événement
-  const { data } = await supabase
+  const { data } = await supabaseClient 
     .from('events')
     .select('start_time')
     .eq('user_id', currentUser.id)
