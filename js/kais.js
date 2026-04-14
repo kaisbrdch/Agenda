@@ -8,7 +8,7 @@ const KAIS_DEFAULTS = [
   { emoji: '☕', titre: 'Tester des cafés à Marseille',   sub: 'Toujours reporté 😂',      done: false },
   { emoji: '🌊', titre: 'Se balader au bord de la mer',   sub: 'Toujours reporté 😂',      done: false },
   { emoji: '🎨', titre: 'Activité peinture / poterie',    sub: 'Toujours reporté 😂',      done: false },
-  { emoji: '🥐', titre: 'Goûter chez 82',                 sub: 'Toujours reporté 😂',      done: false },
+  { emoji: '🥐', titre: 'Tester le salé chez +82',                 sub: 'Toujours reporté 😂',      done: false },
 ];
 
 async function loadKais() {
